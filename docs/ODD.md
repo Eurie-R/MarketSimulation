@@ -1,7 +1,7 @@
 # Model description (ODD protocol)
 
 This document describes the Market ABM following the ODD protocol (Overview, Design concepts,
-Details; Grimm et al. 2020). It is generated from the specification in `CLAUDE.md` and the final
+Details; Grimm et al. 2020). It is generated from the specification in [`CLAUDE.md`](CLAUDE.md) and the final
 code in `src/marketabm/`. Parameter values are those of `configs/calibrated.yaml` unless stated.
 The results describe the model's mechanism, not a forecast for the Philippine Stock Exchange.
 
@@ -340,6 +340,6 @@ except the first, which concerns the repository layout.
 
 ## References
 
-See `CLAUDE.md` Section 20. Key sources: Brock & Hommes (1998); Chiarella, Iori & Perelló (2009);
+See [`CLAUDE.md`](CLAUDE.md) Section 20. Key sources: Brock & Hommes (1998); Chiarella, Iori & Perelló (2009);
 Cont (2001); Grimm et al. (2020); Mannaro, Marchesi & Setzu (2008); Raberto et al. (2001);
 Westerhoff (2003).

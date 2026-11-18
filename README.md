@@ -7,7 +7,8 @@ selling price (RA 12214, July 2025).
 
 **Results describe the model's mechanism, not a forecast for the Philippine Stock Exchange.**
 
-- Full specification: [`CLAUDE.md`](CLAUDE.md)
+- New to the topic? Start with the plain-language guide: [`docs/explainer.md`](docs/explainer.md)
+- Full specification: [`docs/CLAUDE.md`](docs/CLAUDE.md)
 - Model description (ODD protocol): [`docs/ODD.md`](docs/ODD.md)
 - Results write-up: [`docs/results.md`](docs/results.md)
 
@@ -87,7 +88,7 @@ python -m uv run python scripts/make_figures.py --experiment e1_calibration   # 
 ```
 
 No grid point passes all five validation checks, so the final parameter set comes from
-`e1_compromise.py` (see `CLAUDE.md` §12.4 and `docs/results.md`).
+`e1_compromise.py` (see `docs/CLAUDE.md` §12.4 and `docs/results.md`).
 
 **Empirical data.** Yahoo Finance has no history for the PSEi ticker `PSEI.PS`, so
 `fetch_psei.py` downloads the iShares MSCI Philippines ETF (**EPHE**, daily, 2015 onward) instead.
@@ -128,7 +129,7 @@ src/marketabm/
 scripts/      fetch_psei, run_calibration, e1_compromise, run_experiment, analyze, make_figures
 notebooks/    sandbox.ipynb
 tests/        pytest suite
-docs/         ODD.md, results.md, figures/ (copies of F1-F8 used by results.md)
+docs/         explainer.md, ODD.md, results.md, figures/ (copies of F1-F8 used by results.md)
 data/, results/   generated, not tracked
 ```
 
