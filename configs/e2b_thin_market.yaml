@@ -1,0 +1,9 @@
+# E2b: tax x market thinness (H3). M stays 10 for both N (Section 13.2). 5 x 2 x 30 = 300 runs.
+name: e2b_thin_market
+base: configs/calibrated.yaml
+seeds: {start: 1000, count: 30}
+grid:
+  tau: [0.0, 0.001, 0.0025, 0.006, 0.01]
+  N: [250, 1000]
+overrides: {M: 10}
+save_series: false

@@ -1,0 +1,20 @@
+# E1 calibration, v1.2 grid (CLAUDE.md Section 12.4). 3 x 3 x 2 x 2 x 4 x 3 x 4 = 1,728 points.
+# The v1 grid (no point passed 12.3) is archived in results/e1_calibration/v1_grid/.
+name: e1_calibration
+base: configs/baseline.yaml
+grid:
+  sigma_eps: [0.0002, 0.0005, 0.001]
+  order_life: [50, 100, 200]
+  k_max: [0.005, 0.01]
+  chartist_g2: [[0.8, 1.2], [1.2, 1.8]]   # sets profiles.chartist.g2
+  tau_f: [25, 27.5, 30, 32.5]
+  price_band: [0.005, 0.00625, 0.0075]
+  vol_feedback_gamma: [0, 1, 2, 3]          # sets vol_feedback (enabled, gamma); 0 = no feedback
+# ASSUMPTION: calibration seeds are kept apart from the experiment seeds (1000+), so the
+# calibrated point is not tuned on the same random draws the experiments use.
+seeds_stage1: [1, 2, 3]
+seeds_stage2: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109,
+               110, 111, 112, 113, 114, 115, 116, 117, 118, 119,
+               120, 121, 122, 123, 124, 125, 126, 127, 128, 129]
+top_k: 10
+bootstrap: {block: 20, n_boot: 1000, seed: 0}

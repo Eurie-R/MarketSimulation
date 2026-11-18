@@ -1,0 +1,53 @@
+[project]
+name = "market-abm"
+version = "0.1.0"
+description = "Agent-based market model: transaction taxes and trader heterogeneity"
+readme = "README.md"
+authors = [
+    { name = "Uri", email = "ramoy.uriel@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "ipywidgets>=8.1.9",
+    "joblib>=1.6.0",
+    "jupyterlab>=4.6.6",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pandas>=3.1.1",
+    "pyarrow>=26.0.1",
+    "pydantic>=2.14.3",
+    "pyyaml>=6.0.3",
+    "salib>=1.6.0",
+    "scipy>=1.18.1",
+    "statsmodels>=0.15.0",
+    "tqdm>=4.70.1",
+    "yfinance>=1.8.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.170.15",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.4",
+]
+
+[tool.uv.build-backend]
+module-name = "marketabm"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

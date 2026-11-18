@@ -1,0 +1,18 @@
+# E4: Sobol sensitivity of the PH cut effect (Section 13.3).
+# 64 x (2*3 + 2) = 512 points x 2 tax rates = 1,024 runs; seed = 5000 + point index.
+name: e4_sensitivity
+base: configs/calibrated.yaml
+sobol:
+  params:
+    N: [250, 2000]
+    order_life: [50, 500]
+    sigma_f: [0.0005, 0.002]
+  integer_params: [N, order_life]
+  base_n: 64
+  calc_second_order: true
+  seed_start: 5000
+  taus: [0.006, 0.001]            # Y = metric(0.001) - metric(0.006)
+  outputs: [vol, mispricing, rel_spread_mean]
+  sample_seed: 0
+overrides: {}
+save_series: false

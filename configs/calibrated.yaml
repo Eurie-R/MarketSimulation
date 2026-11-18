@@ -1,0 +1,72 @@
+# E1 best compromise (partial calibration failure, CLAUDE.md 12.4 step 8): sigma_eps=0.0002, k_max=0.01, chartist_g2=[0.8, 1.2], vol_feedback_gamma=3, order_life=200, tau_f=12.5, price_band=0.00875
+T: 50000
+T_burn: 5000
+M: 10
+N: 1000
+p0: 100.0
+tick: 0.01
+sigma_f: 0.001
+order_life: 200
+return_interval: 20
+tau: 0.0
+c_min: 0.0
+tau_f: 12.5
+sigma_eps: 0.0002
+k_max: 0.01
+price_band: 0.00875
+order_size: signal
+size_unit: 0.01
+size_max: 20
+L_range:
+- 5
+- 50
+h_range:
+- 10
+- 100
+mix:
+  fundamentalist: 0.45
+  chartist: 0.25
+  noise: 0.3
+profiles:
+  fundamentalist:
+    g1:
+    - 0.8
+    - 1.2
+    g2:
+    - 0.0
+    - 0.2
+    n:
+    - 0.1
+    - 0.3
+  chartist:
+    g1:
+    - 0.0
+    - 0.2
+    g2:
+    - 0.8
+    - 1.2
+    n:
+    - 0.1
+    - 0.3
+  noise:
+    g1:
+    - 0.0
+    - 0.0
+    g2:
+    - 0.0
+    - 0.0
+    n:
+    - 1.0
+    - 1.0
+vol_feedback:
+  enabled: true
+  gamma: 3.0
+  fast_halflife: 20.0
+  slow_halflife: 2000.0
+  cap: 5.0
+switching:
+  enabled: false
+  S: 500
+  beta: null
+save_series: true
+depth_pct: 0.01

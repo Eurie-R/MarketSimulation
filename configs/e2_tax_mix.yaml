@@ -1,0 +1,9 @@
+# E2: tax x trader mix (H1, H2, PH cut effect). 5 x 4 cells x 30 seeds = 600 runs.
+name: e2_tax_mix
+base: configs/calibrated.yaml     # falls back to baseline.yaml before E1 is done
+seeds: {start: 1000, count: 30}
+grid:
+  tau: [0.0, 0.001, 0.0025, 0.006, 0.01]
+  chartist_share: [0.10, 0.25, 0.40, 0.55]
+overrides: {}
+save_series: false
