@@ -1,4 +1,4 @@
-"""Plotting functions (matplotlib only) and the notebook sandbox widgets (Section 14).
+"""Plotting functions (matplotlib only) and the notebook sandbox widgets.
 
 Figures illustrate the model's mechanism; they are not forecasts for the PSE.
 """
@@ -148,7 +148,7 @@ def plot_return_hist(R: np.ndarray, ax: Axes) -> None:  # noqa: N803
 
 
 def stylized_facts_card(R: np.ndarray, ax: Axes) -> None:  # noqa: N803
-    """Text card: moments and pass/fail against Section 12.3 targets."""
+    """Text card: moments and pass/fail against the validation targets."""
     ax.axis("off")
     if len(R) < 60:
         ax.text(0, 0.5, "Too few period returns for stylized facts", color=INK)

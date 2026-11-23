@@ -2,7 +2,7 @@
 
 Stage 1 runs every grid point for a few seeds and stores the simulated moments per run. The
 moment distance needs the empirical moments, so it is computed afterwards from the stored runs.
-Stage 2 re-runs the best points with more seeds and applies the Section 12.3 checks.
+Stage 2 re-runs the best points with more seeds and applies the validation checks.
 """
 
 from __future__ import annotations
@@ -26,9 +26,9 @@ from marketabm.stylized_facts import MOMENT_NAMES, moments, standardize
 
 log = logging.getLogger(__name__)
 
-N_ACF_CHECK = 20  # lags of the |R| ACF checked in Section 12.3
+N_ACF_CHECK = 20  # lags of the |R| ACF checked for clustering
 ACF_COLS = [f"acf_abs_{k}" for k in range(1, N_ACF_CHECK + 1)]
-CYCLE_LAGS = (2, 3, 4, 5)  # lags of the R ACF checked for cycles (Section 12.3, v1.2)
+CYCLE_LAGS = (2, 3, 4, 5)  # lags of the R ACF checked for cycles (v1.2)
 ACF_R_COLS = [f"acf_r_{k}" for k in CYCLE_LAGS]
 
 
@@ -168,7 +168,7 @@ def point_means(runs: pd.DataFrame) -> pd.DataFrame:
 
 
 def checks_from_means(row: pd.Series) -> dict[str, bool]:
-    """Section 12.3 targets on seed-averaged statistics.
+    """Validation targets on seed-averaged statistics.
 
     ASSUMPTION: "averaged" means each statistic (and each |R| ACF lag) is averaged over seeds
     first, then compared with the target; the ACF band uses the mean per-run band.

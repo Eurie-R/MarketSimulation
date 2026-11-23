@@ -1,6 +1,6 @@
 """E1 fallback: choose a best-compromise calibration point.
 
-No point passes all five Section 12.3 checks (see results/e1_calibration/pilot_cycle_map.csv):
+No point passes all five validation checks (see results/e1_calibration/pilot_cycle_map.csv):
 clustering and |acf_r_lag1| < 0.1 conflict. We take a compromise point, confirm
 it at 30 seeds, and document the partial failure.
 
@@ -86,7 +86,7 @@ def main() -> int:
     lines = [
         "# E1 compromise report",
         "",
-        "No grid or pilot point passes all five Section 12.3 checks: volatility clustering and",
+        "No grid or pilot point passes all five validation checks: volatility clustering and",
         "|acf_r_lag1| < 0.1 conflict (pilot_cycle_map.csv). Measuring returns from the mid price",
         "does not remove the lag-1 reversal, so it is genuine overshoot, not bid-ask bounce.",
         "",

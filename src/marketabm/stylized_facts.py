@@ -1,4 +1,4 @@
-"""Stylized-fact moments and the baseline validation checks (Sections 12.2-12.3)."""
+"""Stylized-fact moments and the baseline validation checks."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ def standardize(r: np.ndarray) -> np.ndarray:
 
 
 def moments(r: np.ndarray) -> dict[str, float]:
-    """Moment vector of Section 12.2 on standardized returns."""
+    """Moment vector on standardized returns."""
     z = standardize(r)
     out = {
         "excess_kurtosis": metrics.excess_kurtosis(z),
@@ -34,7 +34,7 @@ def moments(r: np.ndarray) -> dict[str, float]:
 
 
 def validation_checks(r: np.ndarray, max_lag: int = 20) -> dict[str, bool]:
-    """Pass/fail for the Section 12.3 targets on one return series."""
+    """Pass/fail for the validation targets on one return series."""
     z = standardize(r)
     m = moments(z)
     acf_abs = metrics.acf(np.abs(z), 50)

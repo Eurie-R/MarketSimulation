@@ -1,4 +1,4 @@
-"""SimulationResult container, summary metrics and serialization (Section 10)."""
+"""SimulationResult container, summary metrics and serialization."""
 
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ class SimulationResult:
     best_ask: np.ndarray
     volume: np.ndarray
     tax_revenue_cum: np.ndarray
-    vol_mult: np.ndarray  # noise multiplier m_t (Section 5.10); all 1.0 when off
+    vol_mult: np.ndarray  # noise multiplier m_t; all 1.0 when off
     fills_by_type: np.ndarray  # (T, 3)
     aggressive_fills_by_type: np.ndarray
     skipped_tax_by_type: np.ndarray
@@ -61,7 +61,7 @@ class SimulationResult:
         return self.cash + self.pos * self.price[-1]
 
     def summary(self) -> dict[str, float]:
-        """Flat dict of all Section 11 metrics after burn-in. Never raises."""
+        """Flat dict of all summary metrics after burn-in. Never raises."""
         out: dict[str, float] = {}
         for name, fn in (
             ("returns", self._returns_part),
@@ -71,7 +71,7 @@ class SimulationResult:
         ):
             try:
                 out.update(fn())
-            except Exception:  # pragma: no cover - defensive, per Section 11.7
+            except Exception:  # pragma: no cover - defensive: summary() never raises
                 log.warning("summary part %r failed", name, exc_info=True)
         for key, val in out.items():
             if isinstance(val, float) and math.isnan(val):
@@ -118,7 +118,7 @@ class SimulationResult:
     def _switching_part(self) -> dict[str, float]:
         """Mean type shares over switching rounds after burn-in (E3). Empty if switching is off.
 
-        ASSUMPTION: E3 needs a per-run summary of the mix; Section 11 defines none, so this adds
+        ASSUMPTION: E3 needs a per-run summary of the mix, so this adds
         ``share_mean_<type>`` (mean over rounds with ``switch_t >= T_burn``) and
         ``share_sd_chartist`` (round-to-round spread, a measure of herding swings).
         """

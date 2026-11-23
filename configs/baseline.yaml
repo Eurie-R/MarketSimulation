@@ -20,7 +20,7 @@ k_max: 0.005
 L_range: [5, 50]
 h_range: [10, 100]
 
-# Order price band and order size (Section 5.5)
+# Order price band and order size
 price_band: 0.01        # null = no band (v1 rule; diverges with chartists)
 order_size: signal      # "unit" = always 1 unit; "signal" = grows with expected gain
 size_unit: 0.01         # expected log gain per unit of order size
@@ -33,7 +33,7 @@ profiles:
   chartist:       {g1: [0.0, 0.2], g2: [0.8, 1.2], n: [0.1, 0.3]}
   noise:          {g1: [0.0, 0.0], g2: [0.0, 0.0], n: [1.0, 1.0]}
 
-# Volatility feedback on the noise term (Section 5.10, v1.2; off = v1.1 model)
+# Volatility feedback on the noise term (v1.2; off = v1.1 model)
 vol_feedback: {enabled: false, gamma: 1.0, fast_halflife: 20, slow_halflife: 2000, cap: 5.0}
 
 # Strategy switching (E3 only)

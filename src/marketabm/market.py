@@ -32,7 +32,7 @@ NAN = float("nan")
 
 # --------------------------------------------------------------------------- pre-draws
 def fundamental_path(rng: np.random.Generator, T: int, p0: float, sigma_f: float) -> np.ndarray:  # noqa: N803
-    """Log-random-walk fundamental ``f_0 .. f_{T-1}`` with ``f_0 = p0`` (Section 5.3)."""
+    """Log-random-walk fundamental ``f_0 .. f_{T-1}`` with ``f_0 = p0``."""
     z = rng.standard_normal(T - 1)
     logf = np.concatenate(([math.log(p0)], math.log(p0) + np.cumsum(sigma_f * z)))
     return np.exp(logf)
@@ -53,7 +53,7 @@ def draw_noise(rng: np.random.Generator, T: int, M: int, sigma_eps: float) -> np
 
 # --------------------------------------------------------------------------- ledger
 class Ledger:
-    """Cash, positions and tax revenue (Section 5.6). Tax is charged to the seller."""
+    """Cash, positions and tax revenue. Tax is charged to the seller."""
 
     def __init__(self, N: int, tau: float) -> None:  # noqa: N803
         self.cash = [0.0] * N
@@ -75,7 +75,7 @@ class Ledger:
 
 # --------------------------------------------------------------------------- vol feedback
 class VolFeedbackState:
-    """Noise multiplier ``m_t`` from fast/slow EWMA volatility (Section 5.10).
+    """Noise multiplier ``m_t`` from fast/slow EWMA volatility.
 
     ``m_t = clip((s_fast / s_slow) ** gamma, 1 / cap, cap)`` where ``s_fast``, ``s_slow`` are
     bias-corrected EWMA standard deviations of one-step log returns up to step t - 1.
@@ -265,7 +265,7 @@ def run(config: ModelConfig, seed: int, *, debug: bool = False) -> SimulationRes
     config : ModelConfig
         Fully resolved model configuration.
     seed : int
-        Root seed for all random streams (Section 8).
+        Root seed for all random streams.
     debug : bool
         If True, check conservation invariants after every step (slow).
 
@@ -281,7 +281,7 @@ def run(config: ModelConfig, seed: int, *, debug: bool = False) -> SimulationRes
 
 
 class Simulation:
-    """One simulation: pre-draws (Section 8) plus the per-step loop body (Section 7).
+    """One simulation: pre-draws of all random numbers plus the per-step loop body.
 
     ``run`` drives it in one go; the live view drives it with :meth:`advance` and reads
     :meth:`frame`. Both use the same loop and streams, so the paths are identical.

@@ -1,4 +1,4 @@
-"""Tests for empirical.py and calibration.py (Phase 4, E1)."""
+"""Tests for empirical.py and calibration.py (E1)."""
 
 from pathlib import Path
 

@@ -19,7 +19,7 @@ Requirements: Python 3.12 and [uv](https://docs.astral.sh/uv/).
 
 ```bash
 pip install uv                      # skip if uv is already installed
-python -m uv sync                   # creates .venv with all dependencies from uv.lock
+python -m uv sync --all-extras    # creates .venv with all dependencies from uv.lock
 ```
 
 Every command below uses `python -m uv run ...`. If `uv` is on your PATH, `uv run ...` is the same.

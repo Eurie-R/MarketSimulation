@@ -16,7 +16,7 @@ NAN = float("nan")
 
 
 def period_returns(price: np.ndarray, T_burn: int, interval: int) -> np.ndarray:  # noqa: N803
-    """Log changes between consecutive period-end prices after burn-in (Section 5.7).
+    """Log changes between consecutive period-end prices after burn-in.
 
     ``R_j = log P[T_burn + (j+1)*interval - 1] - log P[T_burn + j*interval - 1]``.
     For ``T_burn = 0`` the first base price is index ``interval - 1``.
@@ -121,7 +121,7 @@ def composition(
     agent_counts: np.ndarray,
     names: tuple[str, ...],
 ) -> dict[str, float]:
-    """Section 11.5 metrics from per-type totals (each shape (3,))."""
+    """Composition metrics from per-type totals (each shape (3,))."""
     total = fills.sum()
     out: dict[str, float] = {}
     for k, name in enumerate(names):

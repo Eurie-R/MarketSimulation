@@ -1,4 +1,4 @@
-"""Agent population as NumPy arrays, type profiles and the decision rule (Section 5.4-5.5)."""
+"""Agent population as NumPy arrays, type profiles and the decision rule."""
 
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ class Agents:
 
 
 def type_counts(N: int, shares: tuple[float, float, float]) -> tuple[int, int, int]:  # noqa: N803
-    """Agent counts from mix shares; fundamentalists absorb rounding (Section 5.4)."""
+    """Agent counts from mix shares; fundamentalists absorb rounding."""
     _, s_c, s_n = shares
     n_c = round(N * s_c)
     n_n = round(N * s_n)
@@ -108,7 +108,7 @@ def decide(
     size_unit: float | None = None,
     size_max: int = 1,
 ) -> tuple[int, int, int]:
-    """Apply the decision rule of Section 5.5 for one activated agent.
+    """Apply the decision rule for one activated agent.
 
     Parameters
     ----------

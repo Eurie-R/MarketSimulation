@@ -1,4 +1,4 @@
-# E4: Sobol sensitivity of the PH cut effect (Section 13.3).
+# E4: Sobol sensitivity of the PH cut effect.
 # 64 x (2*3 + 2) = 512 points x 2 tax rates = 1,024 runs; seed = 5000 + point index.
 name: e4_sensitivity
 base: configs/calibrated.yaml

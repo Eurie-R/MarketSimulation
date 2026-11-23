@@ -1,7 +1,7 @@
-"""Statistical analysis: cell means, paired differences, PH cut effect, hypotheses (Section 13.4).
+"""Statistical analysis: cell means, paired differences, PH cut effect, hypotheses.
 
-All differences are paired by seed: the same seed in two cells shares every random number
-(Section 8), so ``metric(cell A, seed s) - metric(cell B, seed s)`` isolates the parameter change.
+All differences are paired by seed: the same seed in two cells shares every random number,
+so ``metric(cell A, seed s) - metric(cell B, seed s)`` isolates the parameter change.
 """
 
 from __future__ import annotations
@@ -79,7 +79,8 @@ def paired_differences(
         d = wide[v] - wide[ref]
         if relative:
             d = d / wide[ref]
-        grouped = d.groupby(level=by) if by else [((), d)]
+        level = by[0] if len(by) == 1 else by  # scalar level for one key avoids a pandas warning
+        grouped = d.groupby(level=level) if by else [((), d)]
         for g, series in grouped:
             g = g if isinstance(g, tuple) else (g,)
             rows.append((*g, v, *t_interval(series.to_numpy())))
@@ -90,7 +91,7 @@ def paired_differences(
 
 
 def ph_cut_effect(runs: pd.DataFrame, metrics: Sequence[str], by: list[str]) -> pd.DataFrame:
-    """Per-seed ``metric(0.1%) - metric(0.6%)`` with 95% paired t-CIs (Section 2)."""
+    """Per-seed ``metric(0.1%) - metric(0.6%)`` with 95% paired t-CIs."""
     parts = [
         paired_differences(runs, m, by, "tau", ref=PH_OLD, values=[PH_NEW])
         for m in metrics

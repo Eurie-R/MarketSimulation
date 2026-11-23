@@ -8,7 +8,7 @@ Usage:
 Outputs go to results/e1_calibration/.
 """
 
-# ASSUMPTION: E1 has its own driver script; scripts/run_experiment.py (Phase 5) covers E2-E4.
+# ASSUMPTION: E1 has its own driver script; scripts/run_experiment.py covers E2-E4.
 
 from __future__ import annotations
 
@@ -131,7 +131,7 @@ def report(cfg: cal.CalibrationConfig) -> int:
     ]
     if chosen is None:
         lines += [
-            "## Result: no point passes all Section 12.3 checks",
+            "## Result: no point passes all validation checks",
             "",
             "Per-check failures among the top points:",
             "",

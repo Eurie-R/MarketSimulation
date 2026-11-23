@@ -91,7 +91,7 @@ class Switching(_Strict):
 
 
 class VolFeedback(_Strict):
-    """Volatility feedback on the noise term (Section 5.10, v1.2). Off by default."""
+    """Volatility feedback on the noise term (v1.2). Off by default."""
 
     enabled: bool = False
     gamma: float = Field(default=1.0, ge=0)
@@ -129,7 +129,7 @@ class ModelConfig(_Strict):
     tau_f: float = Field(default=10.0, gt=0)
     sigma_eps: float = Field(default=0.0005, ge=0)
     k_max: float = Field(default=0.005, ge=0)
-    # Order price band and order size (Section 5.5, steps 3-5)
+    # Order price band and order size
     price_band: float | None = Field(default=0.01, gt=0)
     order_size: Literal["unit", "signal"] = "signal"
     size_unit: float = Field(default=0.01, gt=0)
@@ -143,7 +143,7 @@ class ModelConfig(_Strict):
         chartist=Profile(g1=(0.0, 0.2), g2=(0.8, 1.2), n=(0.1, 0.3)),
         noise=Profile(g1=(0.0, 0.0), g2=(0.0, 0.0), n=(1.0, 1.0)),
     )
-    # Volatility feedback (Section 5.10)
+    # Volatility feedback
     vol_feedback: VolFeedback = VolFeedback()
     # Switching
     switching: Switching = Switching()
@@ -203,7 +203,7 @@ def config_hash(cfg: ModelConfig) -> str:
 
 
 def mix_from_chartist_share(c: float, base_mix: Mix | dict[str, float]) -> dict[str, float]:
-    """Mix with chartist share ``c``; the other types keep their baseline ratio (Section 9.3).
+    """Mix with chartist share ``c``; the other types keep their baseline ratio.
 
     Parameters
     ----------
@@ -272,7 +272,7 @@ def load_model_config(path: str | Path) -> ModelConfig:
 
 
 # ---------------------------------------------------------------------------
-# Experiment config (used from Phase 5 on)
+# Experiment config
 # ---------------------------------------------------------------------------
 
 
@@ -285,7 +285,7 @@ class Seeds(_Strict):
 
 
 class Sobol(_Strict):
-    """E4 global sensitivity design (Section 13.3)."""
+    """E4 global sensitivity design."""
 
     params: dict[str, tuple[float, float]]
     integer_params: list[str] = Field(default_factory=list)
@@ -308,7 +308,7 @@ class Sobol(_Strict):
 
 
 class ExperimentConfig(_Strict):
-    """An experiment: base config + grid + seeds (Section 9.4), or a Sobol design (13.3)."""
+    """An experiment: base config + grid + seeds, or a Sobol design."""
 
     name: str
     base: str

@@ -1,4 +1,4 @@
-"""Experiment execution: grid/Sobol expansion, parallel runs, result tables (Sections 10, 13).
+"""Experiment execution: grid/Sobol expansion, parallel runs, result tables.
 
 Outputs in ``results/<name>/``:
 - ``runs.parquet``: one row per run with every grid key, the seed and every summary metric.
@@ -51,7 +51,7 @@ def grid_tasks(exp: ExperimentConfig) -> list[dict[str, Any]]:
 
 
 def sobol_sample(exp: ExperimentConfig) -> tuple[dict[str, Any], np.ndarray]:
-    """SALib problem and sample matrix for E4 (Section 13.3)."""
+    """SALib problem and sample matrix for E4."""
     assert exp.sobol is not None
     sb = exp.sobol
     problem = {

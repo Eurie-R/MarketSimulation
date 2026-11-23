@@ -94,7 +94,7 @@ def load_returns(path: str | Path = PROCESSED) -> np.ndarray:
 
 
 def moment_vector(r: np.ndarray) -> np.ndarray:
-    """Section 12.2 moments as an array in ``MOMENT_NAMES`` order."""
+    """Stylized-fact moments as an array in ``MOMENT_NAMES`` order."""
     m = moments(r)
     return np.array([m[k] for k in MOMENT_NAMES], dtype=float)
 

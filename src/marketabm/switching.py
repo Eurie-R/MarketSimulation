@@ -1,4 +1,4 @@
-"""Brock-Hommes logit strategy switching (Section 5.8, E3 only)."""
+"""Brock-Hommes logit strategy switching (E3 only)."""
 
 from __future__ import annotations
 

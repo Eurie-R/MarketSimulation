@@ -1,4 +1,4 @@
-"""Download daily closes for the empirical target and save cleaned log returns (Section 12.1).
+"""Download daily closes for the empirical target and save cleaned log returns.
 
 Usage: uv run python scripts/fetch_psei.py [--ticker EPHE] [--start 2015-01-01]
 
