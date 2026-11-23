@@ -45,7 +45,7 @@ a model step has no calendar meaning.
   returns from the mid price does not remove it, so it is genuine overshooting, not bid-ask bounce.
 - A first calibrated point passed the original four checks only because the price followed an
   ~88-step deterministic cycle. That point was withdrawn, and a fifth "no cycle" check was added.
-- With the user's approval, the final parameters are the best compromise: pass kurtosis, Hill and
+- The final parameters are the best compromise: pass kurtosis, Hill and
   no-cycle, then lowest moment distance D.
 
 | Moment (standardized returns) | Model (30-seed mean) | EPHE | Target | Pass |

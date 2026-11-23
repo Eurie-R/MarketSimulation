@@ -1,4 +1,4 @@
-"""Run an experiment (CLAUDE.md Section 13).
+"""Run an experiment.
 
 Usage: uv run python scripts/run_experiment.py --config configs/e2_tax_mix.yaml [--n-jobs N]
        [--dry-run]

@@ -8,7 +8,6 @@ selling price (RA 12214, July 2025).
 **Results describe the model's mechanism, not a forecast for the Philippine Stock Exchange.**
 
 - New to the topic? Start with the plain-language guide: [`docs/explainer.md`](docs/explainer.md)
-- Full specification: [`docs/CLAUDE.md`](docs/CLAUDE.md)
 - Model description (ODD protocol): [`docs/ODD.md`](docs/ODD.md)
 - Results write-up: [`docs/results.md`](docs/results.md)
 
@@ -88,14 +87,28 @@ python -m uv run python scripts/make_figures.py --experiment e1_calibration   # 
 ```
 
 No grid point passes all five validation checks, so the final parameter set comes from
-`e1_compromise.py` (see `docs/CLAUDE.md` §12.4 and `docs/results.md`).
+`e1_compromise.py` (see `docs/ODD.md` and `docs/results.md`).
 
 **Empirical data.** Yahoo Finance has no history for the PSEi ticker `PSEI.PS`, so
 `fetch_psei.py` downloads the iShares MSCI Philippines ETF (**EPHE**, daily, 2015 onward) instead.
 To use real PSEi data, place a CSV with columns `Date,Close` at `data/raw/psei.csv` and run
 `fetch_psei.py`; the CSV takes priority. F2 needs these data; the other figures do not.
 
-## 4. Notebook sandbox
+## 4. Notebooks
+
+### Simulation notebook (all experiments in one place)
+
+`notebooks/simulation.ipynb` runs E2, E2b, E3 and E4 end to end, analyzes them and shows every
+figure and hypothesis verdict. Its first cell installs this package from GitHub if it is missing,
+so it also runs on Google Colab (Python 3.12+). The full design (2,224 runs) takes about 25 min on
+12 cores and 2-3 h on Colab's 2 cores; set `QUICK = True` for a 5-seed test run (~6 min on 12
+cores). Results are saved under `results/notebook/` and loaded on later runs.
+
+```bash
+python -m uv run jupyter lab notebooks/simulation.ipynb
+```
+
+### Sandbox
 
 ```bash
 python -m uv run jupyter lab notebooks/sandbox.ipynb
@@ -127,7 +140,7 @@ src/marketabm/
   experiments.py, analysis.py     running grids, paired differences, hypothesis checks, Sobol
   viz.py          all figures and notebook widgets
 scripts/      fetch_psei, run_calibration, e1_compromise, run_experiment, analyze, make_figures
-notebooks/    sandbox.ipynb
+notebooks/    simulation.ipynb (all experiments), sandbox.ipynb (interactive)
 tests/        pytest suite
 docs/         explainer.md, ODD.md, results.md, figures/ (copies of F1-F8 used by results.md)
 data/, results/   generated, not tracked

@@ -1,4 +1,4 @@
-"""Strategy switching (CLAUDE.md Section 5.8) and the E3 plumbing."""
+"""Strategy switching and the E3 plumbing."""
 
 from pathlib import Path
 

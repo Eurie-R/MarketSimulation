@@ -1,4 +1,4 @@
-"""Analyze an experiment (CLAUDE.md Section 13.4).
+"""Analyze an experiment.
 
 Usage: uv run python scripts/analyze.py --experiment e2_tax_mix
 Reads results/<name>/ and configs/<name>.yaml; writes results/<name>/analysis/.

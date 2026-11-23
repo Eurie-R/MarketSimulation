@@ -1,7 +1,7 @@
-"""E1 fallback: choose a best-compromise calibration point (CLAUDE.md Section 12.4, step 8).
+"""E1 fallback: choose a best-compromise calibration point.
 
 No point passes all five Section 12.3 checks (see results/e1_calibration/pilot_cycle_map.csv):
-clustering and |acf_r_lag1| < 0.1 conflict. The user chose to take a compromise point, confirm
+clustering and |acf_r_lag1| < 0.1 conflict. We take a compromise point, confirm
 it at 30 seeds, and document the partial failure.
 
 Usage: uv run python scripts/e1_compromise.py [--n-jobs N]
@@ -72,7 +72,7 @@ def main() -> int:
     point = points[chosen]
     with open("configs/calibrated.yaml", "w", encoding="utf-8") as fh:
         fh.write(
-            f"# E1 best compromise (partial calibration failure, CLAUDE.md 12.4 step 8): "
+            f"# E1 best compromise (partial calibration failure): "
             f"{cal.point_label(point)}\n"
         )
         yaml.safe_dump(cal.calibrated_config(cfg.base, point), fh, sort_keys=False)

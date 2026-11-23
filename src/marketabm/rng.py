@@ -1,4 +1,4 @@
-"""Named random streams built from one root seed (CLAUDE.md Section 8)."""
+"""Named random streams built from one root seed."""
 
 from __future__ import annotations
 

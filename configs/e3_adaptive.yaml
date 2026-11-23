@@ -1,7 +1,7 @@
 # E3: tax x strategy switching (Section 13.1). 5 x 2 x 30 = 300 runs.
 # beta levels chosen in Phase 6 from a pilot (results/e3_adaptive/pilot_beta.csv): the median
 # |pi_F - pi_C| per 500-step window is ~0.23, so beta 2 is mild (P(better type) ~ 0.61 at the
-# median gap) and beta 15 is strong (~0.97). Approved by the user.
+# median gap) and beta 15 is strong (~0.97).
 # The grid key "beta" sets switching.beta and turns switching on (config.with_overrides).
 name: e3_adaptive
 base: configs/calibrated.yaml

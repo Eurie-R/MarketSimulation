@@ -1,4 +1,4 @@
-"""Make the figures of an experiment (CLAUDE.md Section 14.1). Run analyze.py first.
+"""Make the figures of an experiment. Run analyze.py first.
 
 Usage: uv run python scripts/make_figures.py --experiment e2_tax_mix
   e1_calibration  -> F1, F2 (uses configs/calibrated.yaml and the empirical returns)

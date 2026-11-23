@@ -1,7 +1,7 @@
 # Model description (ODD protocol)
 
 This document describes the Market ABM following the ODD protocol (Overview, Design concepts,
-Details; Grimm et al. 2020). It is generated from the specification in [`CLAUDE.md`](CLAUDE.md) and the final
+Details; Grimm et al. 2020). It is based on the model specification and the final
 code in `src/marketabm/`. Parameter values are those of `configs/calibrated.yaml` unless stated.
 The results describe the model's mechanism, not a forecast for the Philippine Stock Exchange.
 
@@ -293,7 +293,7 @@ except the first, which concerns the repository layout.
     the mean per-run band (`calibration.py`).
 12. Stage 2 re-runs the top 10 points by distance **and** every point whose 3-seed means pass all
     checks. With 3 seeds the distance is too noisy to rank on (`scripts/run_calibration.py`).
-13. A fifth validation check (no cycle at lags 2–5) was added, with the user's approval, after the
+13. A fifth validation check (no cycle at lags 2–5) was added after the
     first calibrated point turned out to have an ~88-step price cycle.
 14. Fallback rule when no point passes all checks (`scripts/e1_compromise.py`): the point must pass
     kurtosis, Hill and no-cycle; among those, the lowest distance D wins.
@@ -340,6 +340,14 @@ except the first, which concerns the repository layout.
 
 ## References
 
-See [`CLAUDE.md`](CLAUDE.md) Section 20. Key sources: Brock & Hommes (1998); Chiarella, Iori & Perelló (2009);
-Cont (2001); Grimm et al. (2020); Mannaro, Marchesi & Setzu (2008); Raberto et al. (2001);
-Westerhoff (2003).
+- Brock, W. A., & Hommes, C. H. (1998). Heterogeneous beliefs and routes to chaos in a simple asset pricing model. *JEDC*, 22, 1235–1274.
+- Chiarella, C., Iori, G., & Perelló, J. (2009). The impact of heterogeneous trading rules on the limit order book and order flows. *JEDC*, 33(3), 525–537. https://arxiv.org/abs/0711.3581
+- Colliard, J.-E., & Hoffmann, P. (2017). Financial transaction taxes, market composition, and liquidity. *Journal of Finance*, 72(6), 2685–2716.
+- Cont, R. (2001). Empirical properties of asset returns: Stylized facts and statistical issues. *Quantitative Finance*, 1(2), 223–236.
+- Franke, R., & Westerhoff, F. (2012). Structural stochastic volatility in asset pricing dynamics: Estimation and model contest. *JEDC*, 36(8), 1193–1211.
+- Fricke, D., & Lux, T. (2015). The effects of a financial transaction tax in an artificial financial market. *JEIC*, 10(1), 119–150.
+- Grimm, V., et al. (2020). The ODD protocol for describing agent-based and other simulation models: A second update. *JASSS*, 23(2), 7.
+- Mannaro, K., Marchesi, M., & Setzu, A. (2008). Using an artificial financial market for assessing the impact of Tobin-like transaction taxes. *JEBO*, 67(2), 445–462.
+- Pellizzari, P., & Westerhoff, F. (2009). Some effects of transaction taxes under different microstructures. *JEBO*, 72(3), 850–863.
+- Raberto, M., Cincotti, S., Focardi, S. M., & Marchesi, M. (2001). Agent-based simulation of a financial market. *Physica A*, 299(1–2), 319–327.
+- Westerhoff, F. (2003). Heterogeneous traders and the Tobin tax. *Journal of Evolutionary Economics*, 13(1), 53–70.

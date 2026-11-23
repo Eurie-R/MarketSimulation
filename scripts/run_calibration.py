@@ -1,4 +1,4 @@
-"""Run E1 calibration (CLAUDE.md Section 12.4).
+"""Run E1 calibration.
 
 Usage:
   uv run python scripts/run_calibration.py --stage 1 [--n-jobs N]   # grid x 3 seeds, no data

@@ -1,4 +1,4 @@
-"""Metric definitions (CLAUDE.md Section 11). Pure functions: arrays in, numbers out."""
+"""Metric definitions. Pure functions: arrays in, numbers out."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Configuration models, YAML loading and mix derivation (CLAUDE.md Section 9)."""
+"""Configuration models, YAML loading and mix derivation."""
 
 from __future__ import annotations
 
@@ -110,7 +110,7 @@ class VolFeedback(_Strict):
 
 
 class ModelConfig(_Strict):
-    """All model parameters (CLAUDE.md Section 9.2)."""
+    """All model parameters."""
 
     # Market
     T: int = Field(default=50_000, gt=0)

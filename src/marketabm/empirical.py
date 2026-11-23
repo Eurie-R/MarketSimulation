@@ -1,4 +1,4 @@
-"""Empirical return data: loading, cleaning, moments and block bootstrap (CLAUDE.md Section 12).
+"""Empirical return data: loading, cleaning, moments and block bootstrap.
 
 The target series is the PSEi when a user CSV is supplied, otherwise a proxy downloaded by
 ``scripts/fetch_psei.py`` (default EPHE). ``data/processed/source.json`` records which one.

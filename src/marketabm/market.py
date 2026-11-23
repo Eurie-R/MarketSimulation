@@ -1,4 +1,4 @@
-"""Main simulation loop: ``run(config, seed) -> SimulationResult`` (CLAUDE.md Section 7).
+"""Main simulation loop: ``run(config, seed) -> SimulationResult``.
 
 ``live(config, seed)`` runs the same loop and yields snapshots for the live view.
 """

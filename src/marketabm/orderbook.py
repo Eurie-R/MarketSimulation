@@ -1,4 +1,4 @@
-"""Limit order book with price-time priority (CLAUDE.md Section 6).
+"""Limit order book with price-time priority.
 
 Pure data structure: no randomness, no tax logic. Prices are integer ticks.
 """

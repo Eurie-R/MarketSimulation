@@ -6,8 +6,8 @@ Order of preference:
 1. A user-supplied PSEi CSV at data/raw/psei.csv (columns Date,Close), if present.
 2. Otherwise a Yahoo Finance download of ``--ticker`` (default EPHE).
 
-Why EPHE: Yahoo has no history for PSEI.PS (only the current day's quote). With the user's
-approval we use EPHE, the iShares MSCI Philippines ETF, as a proxy. It holds Philippine large
+Why EPHE: Yahoo has no history for PSEI.PS (only the current day's quote). We use
+EPHE, the iShares MSCI Philippines ETF, as a proxy. It holds Philippine large
 caps like the PSEi, but it is priced in USD and trades in New York, so its returns also carry
 the PHP/USD exchange rate and US-session timing.
 """

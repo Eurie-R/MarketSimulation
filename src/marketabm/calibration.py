@@ -1,4 +1,4 @@
-"""E1 calibration: grid search on stylized-fact moments (CLAUDE.md Section 12.4).
+"""E1 calibration: grid search on stylized-fact moments.
 
 Stage 1 runs every grid point for a few seeds and stores the simulated moments per run. The
 moment distance needs the empirical moments, so it is computed afterwards from the stored runs.

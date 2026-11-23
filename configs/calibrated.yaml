@@ -1,4 +1,4 @@
-# E1 best compromise (partial calibration failure, CLAUDE.md 12.4 step 8): sigma_eps=0.0002, k_max=0.01, chartist_g2=[0.8, 1.2], vol_feedback_gamma=3, order_life=200, tau_f=12.5, price_band=0.00875
+# E1 best compromise (partial calibration failure): sigma_eps=0.0002, k_max=0.01, chartist_g2=[0.8, 1.2], vol_feedback_gamma=3, order_life=200, tau_f=12.5, price_band=0.00875
 T: 50000
 T_burn: 5000
 M: 10

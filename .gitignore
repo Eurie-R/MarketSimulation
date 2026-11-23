@@ -1,4 +1,6 @@
-# --- Project rules (CLAUDE.md Section 4) ---
+# --- Project rules ---
+docs/CLAUDE.md
+memory.md
 data/
 results/
 .ipynb_checkpoints/
